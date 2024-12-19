@@ -2,7 +2,7 @@ import { Feather } from "@expo/vector-icons";
 import { TextInput, View } from "react-native";
 import { styles } from "./styles";
 
-export function Input() {
+export function SearchUserInput() {
     return (
         <View style={styles.container}>
             <TextInput
