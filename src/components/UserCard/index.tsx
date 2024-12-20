@@ -1,4 +1,6 @@
+import { useNavigation } from "@react-navigation/native";
 import { Image, Text, TouchableOpacity, View } from "react-native";
+import { AppNavigatorRoutesProps } from "../../routes/app.routes";
 import { styles } from "./styles";
 
 interface UserCardProps {
@@ -8,8 +10,18 @@ interface UserCardProps {
 }
 
 export function UserCard({ avatarUrl, userName, userCompleteName }: UserCardProps) {
+    const navigation = useNavigation<AppNavigatorRoutesProps>()
+
+    function handleOpenUserInfo() {
+        navigation.navigate("user")
+    }
+
     return (
-        <TouchableOpacity style={styles.container} activeOpacity={0.8}>
+        <TouchableOpacity 
+            style={styles.container} 
+            activeOpacity={0.5}
+            onPress={handleOpenUserInfo}
+        >
             <Image src={avatarUrl} style={styles.avatar} />
 
             <View style={styles.textContainer}>

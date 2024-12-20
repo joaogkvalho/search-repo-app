@@ -1,6 +1,4 @@
-import { Dimensions, StyleSheet } from "react-native";
-
-const dimensions = Dimensions.get("window")
+import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
     container: {
@@ -8,6 +6,11 @@ export const styles = StyleSheet.create({
 
         padding: 24,
 
+        alignItems: "center",
+        justifyContent: "center",
+    },
+
+    formContainer: {
         alignItems: "center",
         justifyContent: "center",
         gap: 12,
@@ -18,5 +21,26 @@ export const styles = StyleSheet.create({
 
         textAlign: "center",
         color: "#BFBFD4"
+    },
+
+    inputContainer: {
+        width: "100%",
+        height: 64,
+
+        flexDirection: "row",
+        alignItems: "center",
+
+        marginTop: 18,
+        paddingHorizontal: 24,
+
+        fontSize: 16,
+
+        backgroundColor: "#22222F",
+        borderRadius: 8,
+    },
+
+    input: {
+        flex: 1,
+        color: "#FFF",
     }
 })
