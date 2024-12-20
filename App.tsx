@@ -1,16 +1,17 @@
-import { StatusBar, View } from 'react-native';
-import { Users } from './src/screens/Users';
+import React from 'react';
+import { StatusBar } from 'react-native';
+import { Routes } from './src/routes';
 
 export default function App() {
   return (
-    <View>
-      <Users />
+    <>
+      <Routes />
 
       <StatusBar 
         barStyle="light-content" 
         backgroundColor="transparent" 
         translucent 
       />
-    </View>
+    </>
   );
 }

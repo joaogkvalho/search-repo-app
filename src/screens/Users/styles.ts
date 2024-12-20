@@ -4,16 +4,13 @@ const dimensions = Dimensions.get("window")
 
 export const styles = StyleSheet.create({
     container: {
-        width: dimensions.width,
-        height: "100%",
+        flex: 1,
 
         padding: 24,
 
         alignItems: "center",
         justifyContent: "center",
         gap: 12,
-
-        backgroundColor: "#13131A"
     },
 
     description: {
