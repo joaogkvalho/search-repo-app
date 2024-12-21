@@ -5,6 +5,10 @@ export const userInitalState: IUserProps = {
    user: {
     login: "",
     name: "",
-    avatar_url: ""
-   }
+    avatar_url: "",
+    public_repos: 0,
+    followers: 0,
+    following: 0
+   },
+   userRepos: []
 }

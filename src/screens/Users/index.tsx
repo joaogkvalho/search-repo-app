@@ -35,7 +35,9 @@ export function Users() {
                         onChangeText={(name) => dispatch(setUserName(name))}
                     />
 
-                    <TouchableOpacity onPress={() => dispatch(searchUserRequest(userName))}>
+                    <TouchableOpacity
+                        onPress={() => dispatch(searchUserRequest(userName))}
+                    >
                         <Feather
                             name="search" 
                             size={24}
@@ -45,9 +47,9 @@ export function Users() {
                     </TouchableOpacity>
                 </View>
             </View>
-
+        
             {user.login && (
-                <UserCard 
+                <UserCard
                     avatarUrl={user.avatar_url}
                     userName={user.login}
                     userCompleteName={user.name}

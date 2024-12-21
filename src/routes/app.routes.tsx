@@ -3,14 +3,17 @@ import { BottomTabNavigationProp, createBottomTabNavigator } from "@react-naviga
 import React from "react"
 import { About } from "../screens/About"
 import { Favorites } from "../screens/Favorites"
+import { Repository } from "../screens/Repository"
 import { User } from "../screens/User"
 import { Users } from "../screens/Users"
+import { Repo } from "../store/user/interfaces/IUser"
 
 type AppRoutes = {
     users: undefined
     user: undefined
     favorites: undefined
     about: undefined
+    repository: { repo: Repo }
 }
 
 export type AppNavigatorRoutesProps = BottomTabNavigationProp<AppRoutes>
@@ -68,6 +71,17 @@ export function AppRoutes() {
                 name="user"
                 component={User}
                 options={{ 
+                    tabBarButton: () => null,
+                    tabBarItemStyle: {
+                        display: "none"
+                    }
+                }}
+            />
+
+            <Screen 
+                name="repository"
+                component={Repository}
+                options={{
                     tabBarButton: () => null,
                     tabBarItemStyle: {
                         display: "none"

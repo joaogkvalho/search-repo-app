@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { userInitalState } from "./initialState";
-import { searchUserRequest } from "./thunks";
+import { searchUserRepos, searchUserRequest } from "./thunks";
 
 export const userSlice = createSlice({
     name: "user",
@@ -16,6 +16,14 @@ export const userSlice = createSlice({
                 state.user = action.payload
             })
             .addCase(searchUserRequest.rejected, () => {
+                alert("ERRO NA REQUISÇÃO")
+            }),
+
+        builder
+            .addCase(searchUserRepos.fulfilled, (state, action) => {
+                state.userRepos = action.payload
+            })
+            .addCase(searchUserRepos.rejected, () => {
                 alert("ERRO NA REQUISÇÃO")
             })
     },
