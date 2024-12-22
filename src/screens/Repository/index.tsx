@@ -1,7 +1,9 @@
 import { Feather } from "@expo/vector-icons";
 import { useRoute } from "@react-navigation/native";
-import { Text, TouchableOpacity, View } from "react-native";
+import { format } from "date-fns";
+import { Linking, Text, TouchableOpacity, View } from "react-native";
 import { RepositoryHeader } from "../../components/RepositoryHeader";
+import { useAppSelector } from "../../store/hooks/useAppSelector";
 import { Repo } from "../../store/user/interfaces/IUser";
 import { styles } from "./styles";
 
@@ -11,8 +13,13 @@ type RouteParamsProps = {
 
 export function Repository() {
     const route = useRoute()
-    
     const { repo } = route.params as RouteParamsProps
+
+    const { userName } = useAppSelector((store) => store.user)
+
+    function handleNavigateToRepoPage() {
+        Linking.openURL(`https://github.com/${userName}/${repo.name}`)
+    }
 
     return (
         <View style={styles.container}>
@@ -44,12 +51,16 @@ export function Repository() {
                 <View style={styles.dateInfoContainer}>
                     <View style={styles.stats}>
                         <Text style={styles.statsText}>Criado em</Text>
-                        <Text style={styles.statsNumber}>12-12-2024</Text>
+                        <Text style={styles.statsNumber}>
+                            {format(repo.created_at, "dd-MM-yyyy")}
+                        </Text>
                     </View>
 
                     <View style={styles.stats}>
                         <Text style={styles.statsText}>Atualizado em</Text>
-                        <Text style={styles.statsNumber}>18-12-2024</Text>
+                        <Text style={styles.statsNumber}>
+                            {format(repo.updated_at, "dd-MM-yyyy")}
+                        </Text>
                     </View>
                 </View>
 
@@ -65,6 +76,7 @@ export function Repository() {
                 <TouchableOpacity 
                     style={styles.githubButton} 
                     activeOpacity={0.8}
+                    onPress={handleNavigateToRepoPage}
                 >
                     <Feather name="github" size={24} color="7F7F98" />
                     <Text style={styles.githubButtonText}>
