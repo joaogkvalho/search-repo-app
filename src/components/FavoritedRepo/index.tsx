@@ -1,4 +1,7 @@
-import { TouchableOpacity } from "react-native";
+import { FontAwesome } from "@expo/vector-icons";
+import React from "react";
+import { Alert, Image, Text, TouchableOpacity, View } from "react-native";
+import { storageFavoriteReposSave } from "../../storage/storageRepos";
 import { useAppDispatch } from "../../store/hooks/useAppDispatch";
 import { useAppSelector } from "../../store/hooks/useAppSelector";
 import { setUserFavoriteRepos } from "../../store/user/actions";
@@ -13,24 +16,34 @@ export function FavoritedRepo({ favoritedRepo }: FavoritedRepoProps) {
     const { userFavoriteRepos } = useAppSelector((store) => store.user)
     const dispatch = useAppDispatch()
 
-    function handleToogleFavoriteRepo() {
-       const favoritedListWithoutDeleteRepo = userFavoriteRepos.filter((repo) => {
-            return repo.id != favoritedRepo.id
-       })
+    async function removeFavoriteRepo() {
+        const repoListWithoutRemovedOne = userFavoriteRepos.filter((repo) => {
+            return repo.id !== favoritedRepo.id
+        })
 
-       dispatch(setUserFavoriteRepos(favoritedListWithoutDeleteRepo))
+        dispatch(setUserFavoriteRepos(repoListWithoutRemovedOne))
+        await storageFavoriteReposSave(repoListWithoutRemovedOne)
     }
 
-    console.log(userFavoriteRepos)
+    function handleRemoveFavoriteRepo() {
+        Alert.alert(
+            'Remover',
+            'Deseja mesmo remover este repositório?',
+            [
+                { text: 'Não', style: 'cancel' },
+                {text: 'Sim', onPress: () => removeFavoriteRepo()}
+            ]
+        )
+    }
 
     return (
         <TouchableOpacity
-            onPress={handleToogleFavoriteRepo}
+            onPress={handleRemoveFavoriteRepo}
             style={styles.favoritedRepo} 
             activeOpacity={0.7}
         >
-            {/* {favoritedRepo.id && (
-                <View>
+            {favoritedRepo.id && (
+                <>
                     <View style={styles.header}>
                         <Image 
                             src={favoritedRepo.owner.avatar_url} 
@@ -54,8 +67,8 @@ export function FavoritedRepo({ favoritedRepo }: FavoritedRepoProps) {
                             {favoritedRepo.description}
                         </Text>
                     </View>
-                </View>
-            )} */}
+                </>
+            )}
         </TouchableOpacity>
     )
 }

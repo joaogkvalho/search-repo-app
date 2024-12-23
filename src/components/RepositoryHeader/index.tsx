@@ -2,9 +2,8 @@ import { Feather, FontAwesome } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import { TouchableOpacity, View } from "react-native";
 import { AppNavigatorRoutesProps } from "../../routes/app.routes";
-import { useAppDispatch } from "../../store/hooks/useAppDispatch";
+import { storageFavoriteReposSave } from "../../storage/storageRepos";
 import { useAppSelector } from "../../store/hooks/useAppSelector";
-import { setUserFavoriteRepos } from "../../store/user/actions";
 import { Repo } from "../../store/user/interfaces/IUser";
 import { styles } from "./styles";
 
@@ -14,9 +13,8 @@ interface RepositoryHeaderProps {
 
 export function RepositoryHeader({ repo }: RepositoryHeaderProps) {
     const { userFavoriteRepos } = useAppSelector((store) => store.user)
-    const dispatch = useAppDispatch()
 
-    function handleSetRepoAsFavorite() {
+    async function handleSetRepoAsFavorite() {
         const favoriteRepo = {
             id: repo.id,
             name: repo.name,
@@ -28,11 +26,11 @@ export function RepositoryHeader({ repo }: RepositoryHeaderProps) {
             language: repo.language
         }
 
-        dispatch(setUserFavoriteRepos([...userFavoriteRepos, favoriteRepo]))
+        await storageFavoriteReposSave([...userFavoriteRepos, favoriteRepo])
     }
 
     const navigation = useNavigation<AppNavigatorRoutesProps>()
-
+    
     function handleGoBack() {
         navigation.navigate("user")
     }
