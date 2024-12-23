@@ -1,5 +1,7 @@
 import { userSlice } from "./slice";
 
 export const {
-    setUserName
+    setUserName,
+    setFilter,
+    setUserFavoriteRepos
 } = userSlice.actions

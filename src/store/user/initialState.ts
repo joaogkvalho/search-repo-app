@@ -2,6 +2,8 @@ import { IUserProps } from "./interfaces/IUser";
 
 export const userInitalState: IUserProps = {
    userName: "",
+   filter: "",
+   loading: false,
    user: {
     login: "",
     name: "",
@@ -10,5 +12,6 @@ export const userInitalState: IUserProps = {
     followers: 0,
     following: 0
    },
-   userRepos: []
+   userRepos: [],
+   userFavoriteRepos: []
 }

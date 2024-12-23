@@ -13,6 +13,10 @@ export function Users() {
     const { user, userName } = useAppSelector((store) => store.user)
     const dispatch = useAppDispatch()
 
+    function handleSearchUser() {
+        dispatch(searchUserRequest(userName))
+    }
+
     return (
         <ImageBackground 
             source={bg} 
@@ -30,13 +34,15 @@ export function Users() {
                 <View style={styles.inputContainer}>
                     <TextInput
                         style={styles.input}
+                        value={userName}
+                        clearTextOnFocus
                         placeholder="Buscar usuário"
                         placeholderTextColor="#7F7F98"
                         onChangeText={(name) => dispatch(setUserName(name))}
                     />
 
                     <TouchableOpacity
-                        onPress={() => dispatch(searchUserRequest(userName))}
+                        onPress={handleSearchUser}
                     >
                         <Feather
                             name="search" 

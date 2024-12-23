@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
     container: {
         flex: 1,
-        paddingTop: 86,
+        paddingTop: 56,
 
         backgroundColor: "#13131A"
     },
@@ -46,11 +46,34 @@ export const styles = StyleSheet.create({
         color: "#BFBFD4"
     },
 
+    inputContainer: {
+        width: "100%",
+        height: 64,
+
+        flexDirection: "row",
+        alignItems: "center",
+
+        marginTop: 18,
+        paddingHorizontal: 24,
+
+        fontSize: 16,
+
+        backgroundColor: "#22222F",
+        borderRadius: 8,
+    },
+
+    input: {
+        flex: 1,
+        
+        color: "#FFF",
+    },
+
     repositoriesContainer: {
         width: "100%",
 
         marginBottom: 72,
-        paddingVertical: 48,
+        paddingTop: 18,
+        paddingBottom: 42,
         paddingHorizontal: 32,
 
         gap: 24

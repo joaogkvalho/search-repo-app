@@ -31,9 +31,9 @@ export function AppRoutes() {
                 tabBarStyle: {
                     backgroundColor: "#22222F",
                     borderTopWidth: 0,
-                    height: 72,
-                    paddingBottom: 18,
-                    paddingTop: 18
+                    height: 64,
+                    paddingBottom: 14,
+                    paddingTop: 14
                 }
             }}
         >

@@ -23,7 +23,7 @@ export function Repository() {
 
     return (
         <View style={styles.container}>
-            <RepositoryHeader />
+            <RepositoryHeader repo={repo} />
 
             <Text style={styles.repoName}>
                 {repo.name}

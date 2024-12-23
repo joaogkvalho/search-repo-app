@@ -13,7 +13,7 @@ export const styles = StyleSheet.create({
     },
 
     repoName: {
-        marginTop: 16,
+        marginTop: 32,
 
         fontSize: 20,
         fontWeight: "bold",

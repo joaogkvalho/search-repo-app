@@ -1,6 +1,11 @@
 export type Repo = {
-   name: string,
+   id: string
+   name: string
    description: string
+   owner: {
+      login: string
+      avatar_url: string
+   }
    url: string
    created_at: string
    updated_at: string
@@ -9,8 +14,21 @@ export type Repo = {
    stargazers_count: number
 }
 
+export type FavoriteRepo = {
+   id: string
+   name: string
+   owner: {
+      login: string
+      avatar_url: string
+   }
+   description: string
+   language: string
+}
+
 export type IUserProps = {
-   userName: string,
+   userName: string
+   filter: string
+   loading: boolean
    user: {
       login: string
       name: string
@@ -19,5 +37,6 @@ export type IUserProps = {
       followers: number
       following: number
    },
-   userRepos: Repo[]
+   userRepos: Repo[],
+   userFavoriteRepos: FavoriteRepo[]
 }

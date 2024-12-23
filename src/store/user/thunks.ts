@@ -25,3 +25,16 @@ export const searchUserRepos = createAsyncThunk(
         }
     }
 )
+
+export const filterUserRepos = createAsyncThunk(
+    "filter/repos",
+    async (filter: string) => {
+        const response = await fetch(`https://api.github.com/search/repositories?q=user:joaogkvalho+language:${filter}`)
+
+        if (response.ok) {
+            const data = response.json()
+
+            return data
+        }
+    }
+)

@@ -3,16 +3,17 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
     container: {
         flex: 1,
-        alignItems: "center",
-        justifyContent: "center",
+        
+        paddingHorizontal: 32,
+        paddingTop: 86,
 
         backgroundColor: "#13131A"
     },
 
-    text: {
-        fontSize: 18,
+    pageTitle: {
+        fontSize: 20,
         fontWeight: "bold",
 
-        color: "#fff"
+        color: "#FFF",
     }
 })
