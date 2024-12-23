@@ -1,7 +1,8 @@
 import { useEffect } from "react";
-import { FlatList, Text, View } from "react-native";
+import { FlatList, View } from "react-native";
 import { EmptyFavoriteRepos } from "../../components/EmptyFavoriteRepos";
 import { FavoritedRepo } from "../../components/FavoritedRepo";
+import { FavoritesHeader } from "../../components/FavoritesHeader";
 import { storageFavoriteReposGet } from "../../storage/storageRepos";
 import { useAppDispatch } from "../../store/hooks/useAppDispatch";
 import { useAppSelector } from "../../store/hooks/useAppSelector";
@@ -24,9 +25,7 @@ export function Favorites() {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.pageTitle}>
-                Repositórios favoritados
-            </Text>
+            <FavoritesHeader />
 
             <FlatList
                 data={userFavoriteRepos}

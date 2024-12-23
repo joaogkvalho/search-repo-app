@@ -1,6 +1,6 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { FavoriteRepo } from "../store/user/interfaces/IUser";
-import { USER_FAVORITE_REPOS_STORAGE, USER_REPO_IS_FAVORITED } from "./storageConfig";
+import { USER_FAVORITE_REPOS_STORAGE } from "./storageConfig";
 
 // Favorite User Repos
 export async function storageFavoriteReposSave(favoriteRepos: FavoriteRepo[]) {
@@ -17,17 +17,4 @@ export async function storageFavoriteReposGet() {
 
 export async function storageFavoriteReposRemove() {
     await AsyncStorage.removeItem(USER_FAVORITE_REPOS_STORAGE)
-}
-
-// Favorite Boolean Value
-export async function storageIsFavoriteValueSave(isFavorited: boolean) {
-    await AsyncStorage.setItem(USER_REPO_IS_FAVORITED, JSON.stringify(isFavorited))
-}
-
-export async function storageIsFavoriteValueGet() {
-    const storage = await AsyncStorage.getItem(USER_REPO_IS_FAVORITED)
-
-    const isFavorited: boolean = storage ? JSON.parse(storage) : null
-
-    return isFavorited
 }

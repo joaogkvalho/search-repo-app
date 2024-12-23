@@ -4,8 +4,6 @@ export const styles = StyleSheet.create({
     container: {
         flex: 1,
 
-        alignItems: "flex-start",
-
         paddingHorizontal: 36,
         paddingTop: 56,
 
@@ -85,6 +83,7 @@ export const styles = StyleSheet.create({
         alignItems: "center",
 
         marginTop: 64,
+        marginBottom: 76,
         gap: 14
     },
 

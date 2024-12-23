@@ -2,33 +2,13 @@ import { Feather, FontAwesome } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import { TouchableOpacity, View } from "react-native";
 import { AppNavigatorRoutesProps } from "../../routes/app.routes";
-import { storageFavoriteReposSave } from "../../storage/storageRepos";
-import { useAppSelector } from "../../store/hooks/useAppSelector";
-import { Repo } from "../../store/user/interfaces/IUser";
 import { styles } from "./styles";
 
 interface RepositoryHeaderProps {
-    repo: Repo
+    isFavorited: boolean
 }
 
-export function RepositoryHeader({ repo }: RepositoryHeaderProps) {
-    const { userFavoriteRepos } = useAppSelector((store) => store.user)
-
-    async function handleSetRepoAsFavorite() {
-        const favoriteRepo = {
-            id: repo.id,
-            name: repo.name,
-            owner: {
-                login: repo.owner.login,
-                avatar_url: repo.owner.avatar_url
-            },
-            description: repo.description,
-            language: repo.language
-        }
-
-        await storageFavoriteReposSave([...userFavoriteRepos, favoriteRepo])
-    }
-
+export function RepositoryHeader({ isFavorited }: RepositoryHeaderProps) {
     const navigation = useNavigation<AppNavigatorRoutesProps>()
     
     function handleGoBack() {
@@ -45,13 +25,13 @@ export function RepositoryHeader({ repo }: RepositoryHeaderProps) {
                 />
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={handleSetRepoAsFavorite}>
+            <View>
                 <FontAwesome 
-                    name="star-o"
+                    name={isFavorited ? "star" : "star-o"}
                     size={32} 
                     color="#8FB2F5" 
                 />
-           </TouchableOpacity>
+           </View>
         </View>
     )
 }

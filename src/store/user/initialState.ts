@@ -13,5 +13,5 @@ export const userInitalState: IUserProps = {
     following: 0
    },
    userRepos: [],
-   userFavoriteRepos: []
+   userFavoriteRepos: [],
 }
