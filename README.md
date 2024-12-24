@@ -23,6 +23,14 @@
 - Async Storage
 - StyleSheet
 
+<h2 id="about">✨ Neste projeto você pode ver</h2>
+
+- Pesquisa e listagem de usuário do github
+- Listagem de repositórios do usuário pesquisado
+- Tela de informações detalhadas dos repositórios
+- Função para marcar/desmarcar repositório como favorito
+- Listagem de repositórios favoritos
+
 <h2 id="started">🚀 Rodando o projeto</h2>
 
 Para rodar este projeto você irá precisar
