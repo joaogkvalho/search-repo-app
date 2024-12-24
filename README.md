@@ -25,7 +25,7 @@
 
 <h2 id="started">🚀 Rodando o projeto</h2>
 
-Para rodas este projeto você irá precisar
+Para rodar este projeto você irá precisar
 
 - Node
 - Git
