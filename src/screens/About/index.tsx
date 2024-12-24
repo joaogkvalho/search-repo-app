@@ -1,6 +1,6 @@
 import { Feather } from "@expo/vector-icons";
 import { Image, Linking, Text, TouchableOpacity, View } from "react-native";
-import { Header } from "../../components/Header";
+import { Logo } from "../../components/Logo";
 import { styles } from "./styles";
 
 export function About() {
@@ -14,7 +14,7 @@ export function About() {
 
     return (
         <View style={styles.container}>
-            <Header />
+            <Logo />
 
             <View style={styles.content}>
                 <View style={styles.creatorInfo}>

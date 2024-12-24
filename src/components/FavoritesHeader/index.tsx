@@ -7,8 +7,10 @@ import { useAppSelector } from "../../store/hooks/useAppSelector";
 import { styles } from "./styles";
 
 export function FavoritesHeader() {
-    const { userFavoriteRepos } = useAppSelector((store) => store.user)
+    const { userFavoriteRepos, user } = useAppSelector((store) => store.user)
+
     const isFavoriteListEmpty = userFavoriteRepos.length === 0
+    const theresNoUserData = user.login === ""
 
     const navigation = useNavigation<AppNavigatorRoutesProps>()
     
@@ -37,7 +39,7 @@ export function FavoritesHeader() {
     return (
         <View style={styles.container}>
             <TouchableOpacity
-                disabled={isFavoriteListEmpty}
+                disabled={isFavoriteListEmpty || theresNoUserData}
                 onPress={handleGoBack}
             >
                 <Feather 

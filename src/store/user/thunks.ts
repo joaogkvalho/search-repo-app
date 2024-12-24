@@ -22,7 +22,7 @@ export const searchUserRequest = createAsyncThunk(
 export const searchUserRepos = createAsyncThunk(
     "search/repos",
     async (userName: string) => {
-        const response = await fetch(`https://api.github.com/users/${userName}/repos?sort=updated&per_page=8`)
+        const response = await fetch(`https://api.github.com/users/${userName}/repos?per_page=8`)
 
         if (response.ok) {
             const data = response.json()
@@ -37,7 +37,7 @@ export const loadMoreRepos = createAsyncThunk(
     async (loadMoreObject: { page: number, user: User }) => {
         const { page, user } = loadMoreObject
 
-        const response = await fetch(`https://api.github.com/users/${user.login}/repos?sort=updated&per_page=8&page=${page}`)
+        const response = await fetch(`https://api.github.com/users/${user.login}/repos?per_page=8&page=${page}`)
 
         if (response.ok) {
             const data = response.json()

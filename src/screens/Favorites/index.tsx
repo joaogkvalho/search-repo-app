@@ -10,7 +10,7 @@ import { setUserFavoriteRepos } from "../../store/user/actions";
 import { styles } from "./styles";
 
 export function Favorites() {
-    const { userFavoriteRepos, loading } = useAppSelector((store) => store.user)
+    const { userFavoriteRepos } = useAppSelector((store) => store.user)
     const dispatch = useAppDispatch()
 
     async function handleGetUserFavoriteRepos() {

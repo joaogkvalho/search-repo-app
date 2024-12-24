@@ -4,5 +4,6 @@ export const {
     setUserName,
     setFilter,
     setUserFavoriteRepos,
-    setShowUserRepo
+    setShowUserRepo,
+    setRepoListPage
 } = userSlice.actions

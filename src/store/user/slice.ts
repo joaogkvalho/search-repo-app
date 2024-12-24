@@ -18,6 +18,9 @@ export const userSlice = createSlice({
         },
         setShowUserRepo: (state, action) => {
             state.showUserRepo = action.payload
+        },
+        setRepoListPage: (state, action) => {
+            state.repoListPage = action.payload
         }
     },
     extraReducers: (builder) => {

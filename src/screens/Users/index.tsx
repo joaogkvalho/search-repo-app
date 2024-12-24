@@ -3,7 +3,7 @@ import { useNavigation } from "@react-navigation/native";
 import { useEffect } from "react";
 import { Alert, ImageBackground, Text, TextInput, TouchableOpacity, View } from "react-native";
 import bg from "../../assets/background.png";
-import { Header } from "../../components/Header";
+import { Logo } from "../../components/Logo";
 import { UserCard } from "../../components/UserCard";
 import { useAppDispatch } from "../../store/hooks/useAppDispatch";
 import { useAppSelector } from "../../store/hooks/useAppSelector";
@@ -12,7 +12,7 @@ import { searchUserRequest } from "../../store/user/thunks";
 import { styles } from "./styles";
 
 export function Users() {
-    const { user, userName, showUserRepo } = useAppSelector((store) => store.user)
+    const { user, userName, showUserRepo, userRepos } = useAppSelector((store) => store.user)
     const dispatch = useAppDispatch()
 
     const navigation = useNavigation()
@@ -41,7 +41,7 @@ export function Users() {
             resizeMode="cover"
         >
             <View style={styles.formContainer}>
-                <Header />
+                <Logo />
 
                 <Text style={styles.description}>
                     Pesquise repositórios a partir de um usuário do github.

@@ -5,6 +5,7 @@ export const userInitalState: IUserProps = {
    filter: "",
    loading: false,
    showUserRepo: false,
+   repoListPage: 1,
    user: {
     login: "",
     name: "",

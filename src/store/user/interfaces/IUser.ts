@@ -39,6 +39,7 @@ export type IUserProps = {
    filter: string
    loading: boolean
    showUserRepo: boolean
+   repoListPage: number
    user: User
    userRepos: Repo[]
    userFavoriteRepos: FavoriteRepo[]

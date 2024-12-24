@@ -2,7 +2,7 @@ import { FontAwesome } from "@expo/vector-icons";
 import { Text, View } from "react-native";
 import { styles } from "./styles";
 
-export function Header() {
+export function Logo() {
     return (
         <View style={styles.container}>
             <FontAwesome 
