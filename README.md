@@ -12,7 +12,7 @@
 <h2 id="layout">🎨 Layout</h2>
 
 <p align="center">
-    <img src="" alt="Image Example" width="500px">
+    <img src=".github/preview.png" alt="Image Example" width="100%">
 </p>
 
 <h2 id="tech">💻 Tecnologias</h2>
