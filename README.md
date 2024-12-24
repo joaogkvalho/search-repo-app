@@ -70,7 +70,3 @@ npm install
 ```bash
 npx expo start
 ```
-
-<h3>Documentações que podem ajudar</h3>
-
-[📝 Setup completo para rodar projetos mobile React Native](https://react-native.rocketseat.dev/)
