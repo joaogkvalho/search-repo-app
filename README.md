@@ -15,7 +15,7 @@
     <img src="" alt="Image Example" width="500px">
 </p>
 
-<h2 id="technologies">💻 Tecnologias</h2>
+<h2 id="tech">💻 Tecnologias</h2>
 
 - React Native
 - Redux Toolkit
