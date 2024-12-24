@@ -65,7 +65,7 @@ cd search-repo-app
 npm install
 ```
 
-- Rodando o projeot
+- Rodando o projeto
 
 ```bash
 npx expo start
