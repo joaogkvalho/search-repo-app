@@ -39,9 +39,6 @@ export function Favorites() {
                 ListEmptyComponent={() => (
                     <EmptyFavoriteRepos />
                 )}
-                style={{
-                    marginTop: 40,
-                }}
             />
         </View>
     )

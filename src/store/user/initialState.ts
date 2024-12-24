@@ -4,6 +4,7 @@ export const userInitalState: IUserProps = {
    userName: "",
    filter: "",
    loading: false,
+   showUserRepo: false,
    user: {
     login: "",
     name: "",

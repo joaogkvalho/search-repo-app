@@ -5,6 +5,7 @@ export const styles = StyleSheet.create({
         gap: 8,
 
         padding: 24,
+        marginBottom: 18,
 
         backgroundColor: "#22222F",
         borderRadius: 8

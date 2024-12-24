@@ -25,18 +25,21 @@ export type FavoriteRepo = {
    language: string
 }
 
+export type User = {
+   login: string
+   name: string
+   avatar_url: string
+   public_repos: number
+   followers: number
+   following: number
+}
+
 export type IUserProps = {
    userName: string
    filter: string
    loading: boolean
-   user: {
-      login: string
-      name: string
-      avatar_url: string
-      public_repos: number
-      followers: number
-      following: number
-   },
-   userRepos: Repo[],
+   showUserRepo: boolean
+   user: User
+   userRepos: Repo[]
    userFavoriteRepos: FavoriteRepo[]
 }

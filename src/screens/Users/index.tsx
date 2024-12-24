@@ -1,21 +1,37 @@
 import { Feather } from "@expo/vector-icons";
-import { ImageBackground, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import { useEffect } from "react";
+import { Alert, ImageBackground, Text, TextInput, TouchableOpacity, View } from "react-native";
 import bg from "../../assets/background.png";
 import { Header } from "../../components/Header";
 import { UserCard } from "../../components/UserCard";
 import { useAppDispatch } from "../../store/hooks/useAppDispatch";
 import { useAppSelector } from "../../store/hooks/useAppSelector";
-import { setUserName } from "../../store/user/actions";
+import { setShowUserRepo, setUserName } from "../../store/user/actions";
 import { searchUserRequest } from "../../store/user/thunks";
 import { styles } from "./styles";
 
 export function Users() {
-    const { user, userName } = useAppSelector((store) => store.user)
+    const { user, userName, showUserRepo } = useAppSelector((store) => store.user)
     const dispatch = useAppDispatch()
 
+    const navigation = useNavigation()
+
     function handleSearchUser() {
+        if (!userName.trim()) {
+            Alert.alert("Por favor preencha o campo de usuário")
+
+            return
+        }
+
         dispatch(searchUserRequest(userName))
     }
+
+    useEffect(() => {
+        navigation.addListener('blur' , () => {
+            dispatch(setShowUserRepo(false))
+        })
+    }, [])
 
     return (
         <ImageBackground 
@@ -41,20 +57,18 @@ export function Users() {
                         onChangeText={(name) => dispatch(setUserName(name))}
                     />
 
-                    <TouchableOpacity
-                        onPress={handleSearchUser}
-                    >
+                    <TouchableOpacity onPress={handleSearchUser}>
                         <Feather
                             name="search" 
                             size={24}
-                            color="#7F7F98"
+                            color={userName.trim() ? "#FFF" : "#7F7F98"}
                             style={{ width: 24 }} 
                         />
                     </TouchableOpacity>
                 </View>
             </View>
         
-            {user.login && (
+            {user.login && showUserRepo && (
                 <UserCard
                     avatarUrl={user.avatar_url}
                     userName={user.login}
